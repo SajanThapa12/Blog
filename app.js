@@ -7,6 +7,7 @@ const connectDB = require("./conifg/db");
 connectDB();
 
 const app = express();
+const cors = require("cors");
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -15,17 +16,13 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/api/blogs", blogRoutes);
 app.use("/auth", authRoutes);
 
-// app.get("/", (req, res) => {
-//   res.send("Hello Blog");
-// });
+// const corsOptions = {
+//   origin: "http://localhost:5173",
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+//   Credentials: true,
+// };
 
-// app.get("/register", async (req, res) => {
-//   res.render("register");
-// });
-
-// app.get("/login", async (req, res) => {
-//   res.render("login");
-// });
+app.use(cors());
 
 // app.post("/register", async (req, res) => {
 //   const { username, email, password } = req.body;
