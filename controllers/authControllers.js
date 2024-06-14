@@ -36,6 +36,7 @@ exports.login = async (req, res) => {
       return res.status(400).json({ message: "Invalid credentials" });
     }
     req.user = user;
+    res.cookie("logged_in, true");
     res.status(200).json({ message: "User logged in successfully" });
   } catch (error) {
     console.error(error.message);
