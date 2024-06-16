@@ -25,19 +25,19 @@ router.post("/", multerUploads.single("image"), async (req, res) => {
   }
 });
 
-// router.post("/blog", async (req, res) => {
-//   try {
-//     const { title, description } = req.body;
-//     const newBlogPost = new Blog({
-//       title,
-//       description,
-//     });
-//     await newBlogPost.save();
-//     res.status(201).json(newBlogPost);
-//   } catch (error) {
-//     res.status(400).json({ error: error.message });
-//   }
-// });
+router.post("/blog", async (req, res) => {
+  try {
+    const { title, description } = req.body;
+    const newBlogPost = new Blog({
+      title,
+      description,
+    });
+    await newBlogPost.save();
+    res.status(201).json(newBlogPost);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
 
 router.get("/", async (req, res) => {
   try {
