@@ -16,12 +16,12 @@ const authRoutes = require("./routes/authRoutes");
 app.use("/api/blogs", blogRoutes);
 app.use("/auth", authRoutes);
 
-// const corsOptions = {
-//   origin: "http://192.168.1.144:5174",
-//   methods: ["GET", "POST", "PUT", "DELETE"],
-//   credentials: true,
-//   preflightcontinue: true,
-// };
+const corsOptions = {
+  origin: "http://192.168.1.144:5174",
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
+  credentials: true,
+  preflightcontinue: true,
+};
 
 app.use(cors(corsOptions));
 app.all("*", function (req, res) {
