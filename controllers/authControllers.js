@@ -20,8 +20,6 @@ exports.register = async (req, res) => {
   }
 };
 
-//bcrypt .hash(pass, salt)
-
 exports.login = async (req, res) => {
   const { username, password } = req.body;
 
