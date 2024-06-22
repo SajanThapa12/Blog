@@ -4,8 +4,7 @@ const router = express.Router();
 const Blog = require("../model/Blog");
 const multer = require("multer");
 const multerUploads = require("../middleware/multer");
-// api/blogs/
-//
+
 
 router.post("/", multerUploads.single("image"), async (req, res) => {
   try {
